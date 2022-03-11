@@ -1,17 +1,21 @@
 package anemico;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class Main {
 	// ANEMICO
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
+
 		System.out.println("ANEMICO");
 		Date hoy = Calendar.getInstance().getTime();
 		Calendar c = Calendar.getInstance();
 		c.setTime(hoy);
+
 		Tiempo fechaActual = new Tiempo(c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.MONTH), c.get(Calendar.YEAR));
+
 		System.out.println("Formato Corto: " + fechaActual.getDia() + "/" + (fechaActual.getMes() + 1) + "/"
 				+ fechaActual.getAño());
 
@@ -67,7 +71,9 @@ public class Main {
 		}
 		}
 
-		String diaTexto = new SimpleDateFormat("EEEE").format(hoy);
+		SimpleDateFormat formatter = new SimpleDateFormat("d/MM/yyyy");
+		Date fecha = formatter.parse(fechaActual.getDia() + "/" + fechaActual.getMes() + "/" + fechaActual.getAño());
+		String diaTexto = new SimpleDateFormat("EEEE").format(fecha);
 
 		System.out.println("Formato Largo: " + diaTexto + " " + fechaActual.getDia() + " de " + mesText + " de "
 				+ fechaActual.getAño());
