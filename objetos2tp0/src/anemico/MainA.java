@@ -5,8 +5,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Main {
+public class MainA {
 	// ANEMICO
+
 	public static void main(String[] args) throws ParseException {
 
 		System.out.println("ANEMICO");
@@ -14,7 +15,7 @@ public class Main {
 		Calendar c = Calendar.getInstance();
 		c.setTime(hoy);
 
-		Tiempo fechaActual = new Tiempo(c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.MONTH), c.get(Calendar.YEAR));
+		TiempoA fechaActual = new TiempoA(c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.MONTH), c.get(Calendar.YEAR));
 
 		System.out.println("Formato Corto: " + fechaActual.getDia() + "/" + (fechaActual.getMes() + 1) + "/"
 				+ fechaActual.getAño());

@@ -4,11 +4,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Tiempo {
+public class TiempoNA {
 	// NO ANEMICO
+	// Este Objeto NO es Anemico, ya que no solo contiene datos, sino que tambien
+	// guarda bastante logica derivada de los datos almacenados
 	private Date fechaHoy;
 
-	public Tiempo(Date fechaHoy) {
+	public TiempoNA(Date fechaHoy) {
 		this.fechaHoy = fechaHoy;
 	}
 
