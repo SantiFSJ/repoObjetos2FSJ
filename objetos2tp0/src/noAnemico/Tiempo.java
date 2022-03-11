@@ -19,7 +19,6 @@ public class Tiempo {
 	}
 
 	public void imprimirEnFormatoLargo() {
-
 		Calendar c = Calendar.getInstance();
 		c.setTime(fechaHoy);
 		String diaTexto = new SimpleDateFormat("EEEE").format(fechaHoy);
