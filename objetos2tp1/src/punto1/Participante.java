@@ -2,10 +2,10 @@ package punto1;
 
 public class Participante {
 
-	int puntos;
-	String dni;
-	String nombre;
-	String apellido;
+	private int puntos;
+	private String dni;
+	private String nombre;
+	private String apellido;
 
 	public Participante(String dni, String nombre, String apellido) {
 		this.dni = dni;
