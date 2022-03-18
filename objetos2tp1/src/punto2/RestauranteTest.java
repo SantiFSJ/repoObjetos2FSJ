@@ -12,7 +12,6 @@ public class RestauranteTest {
 		PlatoPrincipal p2 = new PlatoPrincipal("Lasagna", 600);
 
 		Bebida b1 = new Bebida("Agua", 50);
-		Bebida b2 = new Bebida("Vino", 80);
 
 		Menu menu = new Menu();
 
