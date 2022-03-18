@@ -24,10 +24,8 @@ public class Concurso {
 		if ((fechaActual.isBefore(fechaFinInscrip) && fechaActual.isAfter(fechaInicioInscrip))
 				|| fechaActual.equals(fechaFinInscrip) || fechaActual.equals(fechaInicioInscrip)) {
 			listaParticipantes.add(unParticipante);
-			System.out.println("El Partipante fue Inscripto Correctamente");
 			if (fechaActual.equals(fechaInicioInscrip)) {
 				unParticipante.sumarPuntos(this.puntajeExtra);
-				System.out.println("Le sumo puntos por primer dia de inscripcion");
 			}
 		} else {
 			System.out.println("ERROR AL INSCRIBIR PARTICIPANTE, FUERA DE PLAZO");

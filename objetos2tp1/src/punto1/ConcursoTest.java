@@ -42,6 +42,7 @@ public class ConcursoTest {
 
 		// Verificacion
 		assertEquals(true, c2.estaInscripto(p2));// Quizas añadir comparacion con el puntaje extra esperado?
+		assertEquals(10, p2.getPuntos());
 
 	}
 
@@ -61,6 +62,5 @@ public class ConcursoTest {
 
 		// Verificacion
 		assertEquals(false, c3.estaInscripto(p3));
-
 	}
 }

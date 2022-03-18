@@ -23,4 +23,8 @@ public class Participante {
 		return "Nombre y Apellido: " + this.nombre + " " + this.apellido + " DNI: " + this.dni + " PUNTAJE: "
 				+ this.puntos;
 	}
+
+	public int getPuntos() {
+		return puntos;
+	}
 }
