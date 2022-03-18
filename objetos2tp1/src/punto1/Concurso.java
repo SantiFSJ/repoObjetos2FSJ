@@ -8,13 +8,14 @@ public class Concurso {
 	private LocalDate fechaInicioInscrip;
 	private LocalDate fechaFinInscrip;
 	private ArrayList<Participante> listaParticipantes;
-	private int puntajeExtra = 10;
+	private int puntajeExtra;
 
 	public Concurso(String nombre, LocalDate fechaInicioInscrip, LocalDate fechaFinInscrip) {
 		super();
 		this.nombre = nombre;
 		this.fechaInicioInscrip = fechaInicioInscrip;
 		this.fechaFinInscrip = fechaFinInscrip;
+		this.puntajeExtra = 10;
 		listaParticipantes = new ArrayList<Participante>();
 	}
 
@@ -25,21 +26,6 @@ public class Concurso {
 			listaParticipantes.add(unParticipante);
 			System.out.println("El Partipante fue Inscripto Correctamente");
 			if (fechaActual.equals(fechaInicioInscrip)) {
-				unParticipante.sumarPuntos(10);
-				System.out.println("Le sumo puntos por primer dia de inscripcion");
-			}
-		} else {
-			System.out.println("ERROR AL INSCRIBIR PARTICIPANTE, FUERA DE PLAZO");
-		}
-	}
-
-	public void inscribirParticipante(Participante unParticipante, LocalDate unaFecha) {
-
-		if ((unaFecha.isBefore(fechaFinInscrip) && unaFecha.isAfter(fechaInicioInscrip))
-				|| unaFecha.equals(fechaFinInscrip) || unaFecha.equals(fechaInicioInscrip)) {
-			listaParticipantes.add(unParticipante);
-			System.out.println("El Partipante fue Inscripto Correctamente");
-			if (unaFecha.equals(fechaInicioInscrip)) {
 				unParticipante.sumarPuntos(this.puntajeExtra);
 				System.out.println("Le sumo puntos por primer dia de inscripcion");
 			}
@@ -48,12 +34,15 @@ public class Concurso {
 		}
 	}
 
-	public String getNombre() {
-		return nombre;
+	public Boolean estaInscripto(Participante unParticipante) {
+		if (this.listaParticipantes.contains(unParticipante)) {
+			return true;
+		}
+		return false;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public String getNombre() {
+		return nombre;
 	}
 
 	public LocalDate getFechaInicioInscrip() {
@@ -74,10 +63,6 @@ public class Concurso {
 
 	public ArrayList<Participante> getListaParticipantes() {
 		return listaParticipantes;
-	}
-
-	public void setListaParticipantes(ArrayList<Participante> listaParticipantes) {
-		this.listaParticipantes = listaParticipantes;
 	}
 
 }

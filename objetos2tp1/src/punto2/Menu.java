@@ -23,8 +23,4 @@ public class Menu {
 		return consumiblesMenu;
 	}
 
-	public void setConsumiblesMenu(ArrayList<Consumible> consumiblesMenu) {
-		this.consumiblesMenu = consumiblesMenu;
-	}
-
 }

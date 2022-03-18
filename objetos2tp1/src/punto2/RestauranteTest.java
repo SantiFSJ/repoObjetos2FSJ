@@ -23,6 +23,10 @@ public class RestauranteTest {
 		menu.añadirConsumible(b2);
 		menu.añadirConsumible(b1);
 
+		Pedido pedido = new Pedido();
+
+		Item i1 = new Item(p1, 2, p1.getPrecio());
+
 		// Ejercitación
 
 		// Verificacion

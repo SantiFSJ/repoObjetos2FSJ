@@ -1,22 +1,25 @@
 package punto2;
 
 public class Pago {
-	private String dni;
+	protected TarjetaCredito tarjetaAsociada;
 	protected float montoFinal;
-	protected Pedido pedido;
+	protected Pedido pedidoAsociado;
+	protected float propina;
 
-	public Pago(String dni, Pedido pedido) {
-		this.setDni(dni);
-		this.pedido = pedido;
-		this.montoFinal = this.pedido.getMontoTotal();
+	public Pago(Pedido pedido, TarjetaCredito unaTarjeta, float propina) {
+		this.pedidoAsociado = pedido;
+		this.montoFinal = this.pedidoAsociado.getMontoTotal();
+		this.propina = propina;
+		this.montoFinal = aplicarDescuento();
+		this.montoFinal = sumarPropina();
 	}
 
-	public String getDni() {
-		return dni;
+	public float aplicarDescuento() {
+		return this.tarjetaAsociada.calcularDescuento(this.pedidoAsociado);
 	}
 
-	public void setDni(String dni) {
-		this.dni = dni;
+	public float sumarPropina() {
+		return (this.montoFinal + (this.montoFinal / 100) * propina);// Contemplar Cambiarlo en un Futuro
 	}
 
 }

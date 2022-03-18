@@ -16,24 +16,12 @@ public class Item {
 		return consumible;
 	}
 
-	public void setConsumible(Consumible consumible) {
-		this.consumible = consumible;
-	}
-
 	public int getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(int cantidad) {
-		this.cantidad = cantidad;
-	}
-
 	public float getPrecio() {
 		return precio;
-	}
-
-	public void setPrecio(float precio) {
-		this.precio = precio;
 	}
 
 	public float getCostoTotal() {

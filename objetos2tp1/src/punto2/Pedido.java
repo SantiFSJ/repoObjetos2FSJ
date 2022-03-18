@@ -5,17 +5,20 @@ import java.util.ArrayList;
 public class Pedido {
 	private ArrayList<Item> itemsPedido;
 	private Estado estado;
+	private Boolean pagado;
 
 	public Pedido(ArrayList<Item> itemsPedido) {
 		super();
 		this.itemsPedido = itemsPedido;
 		this.estado = new Estado();
+		this.pagado = false;
 	}
 
 	public Pedido() {
 		super();
 		this.itemsPedido = new ArrayList<Item>();
 		this.estado = new Estado();
+		this.pagado = false;
 	}
 
 	public ArrayList<Item> getItemsPedido() {
@@ -75,5 +78,13 @@ public class Pedido {
 			}
 		}
 		return montoTotalPlatos;
+	}
+
+	public Pago pagar(TarjetaCredito unaTarjeta, float propina) {
+		Pago pago = null;
+		if (this.estado.confirmado() && this.pagado == false) {
+			pago = new Pago(this, unaTarjeta, propina);
+		}
+		return pago;
 	}
 }
