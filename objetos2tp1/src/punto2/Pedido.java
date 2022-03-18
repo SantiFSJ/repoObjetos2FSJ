@@ -50,18 +50,17 @@ public class Pedido {
 		return this.estado;
 	}
 
-	public float getMontoTotal() {
-		float montoTotal = 0;
+	public Double getMontoTotal() {
+		Double montoTotal = 0.0;
 		for (Item i : itemsPedido) {
 			montoTotal = montoTotal + i.getCostoTotal();
 		}
 		return montoTotal;
 	}
 
-	public float getMontoTotalBebidas() {
-		float montoTotalBebidas = 0;
+	public Double getMontoTotalBebidas() {
+		Double montoTotalBebidas = 0.0;
 		for (Item i : itemsPedido) {
-			montoTotalBebidas = montoTotalBebidas + i.getCostoTotal();
 			if (i.getConsumible() instanceof Bebida) {
 				montoTotalBebidas = montoTotalBebidas + i.getCostoTotal();
 			}
@@ -69,10 +68,9 @@ public class Pedido {
 		return montoTotalBebidas;
 	}
 
-	public float getMontoTotalPlatos() {
-		float montoTotalPlatos = 0;
+	public Double getMontoTotalPlatos() {
+		Double montoTotalPlatos = 0.0;
 		for (Item i : itemsPedido) {
-			montoTotalPlatos = montoTotalPlatos + i.getCostoTotal();
 			if (i.getConsumible() instanceof PlatoPrincipal) {
 				montoTotalPlatos = montoTotalPlatos + i.getCostoTotal();
 			}
