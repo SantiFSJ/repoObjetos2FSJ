@@ -40,6 +40,7 @@ public class RestauranteTest {
 		// Verificacion
 
 		assertEquals(1780.41, pago.getMontoFinal());
+
 	}
 
 	@Test
@@ -77,6 +78,7 @@ public class RestauranteTest {
 		// Verificacion
 
 		assertEquals(2373.12, pago.getMontoFinal());
+
 	}
 
 	@Test
@@ -113,6 +115,7 @@ public class RestauranteTest {
 
 		// Verificacion
 		assertEquals(2881.2, pago.getMontoFinal());
+
 	}
 
 	@Test
@@ -149,5 +152,6 @@ public class RestauranteTest {
 
 		// Verificacion
 		assertEquals(1184.5, pago.getMontoFinal());
+
 	}
 }
