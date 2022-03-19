@@ -1,4 +1,4 @@
-package punto2;
+package srcRestaurante;
 
 public class TarjetaViedma implements TarjetaCredito {
 
@@ -9,7 +9,7 @@ public class TarjetaViedma implements TarjetaCredito {
 	@Override
 	public Double calcularDescuento(Pedido pedidoAsociado) {
 		// TODO Auto-generated method stub
-		return pedidoAsociado.getMontoTotal();
+		return pedidoAsociado.montoTotal();
 	}
 
 }

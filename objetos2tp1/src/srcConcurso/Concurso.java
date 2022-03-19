@@ -1,4 +1,4 @@
-package punto1;
+package srcConcurso;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -37,26 +37,6 @@ public class Concurso {
 			return true;
 		}
 		return false;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public LocalDate getFechaInicioInscrip() {
-		return fechaInicioInscrip;
-	}
-
-	public void setFechaInicioInscrip(LocalDate fechaInicioInscrip) {
-		this.fechaInicioInscrip = fechaInicioInscrip;
-	}
-
-	public LocalDate getFechaFinInscrip() {
-		return fechaFinInscrip;
-	}
-
-	public void setFechaFinInscrip(LocalDate fechaFinInscrip) {
-		this.fechaFinInscrip = fechaFinInscrip;
 	}
 
 	public ArrayList<Participante> getListaParticipantes() {

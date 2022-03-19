@@ -1,10 +1,13 @@
-package punto1;
+package testConcurso;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
+
+import srcConcurso.Concurso;
+import srcConcurso.Participante;
 
 public class ConcursoTest {
 	@Test
@@ -42,7 +45,7 @@ public class ConcursoTest {
 
 		// Verificacion
 		assertEquals(true, c2.estaInscripto(p2));// Quizas añadir comparacion con el puntaje extra esperado?
-		assertEquals(10, p2.getPuntos());
+		assertEquals(10, p2.puntos());
 
 	}
 

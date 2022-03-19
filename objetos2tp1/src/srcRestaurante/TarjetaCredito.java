@@ -1,4 +1,4 @@
-package punto2;
+package srcRestaurante;
 
 public interface TarjetaCredito {
 

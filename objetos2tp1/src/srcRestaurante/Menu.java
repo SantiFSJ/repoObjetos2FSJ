@@ -1,4 +1,4 @@
-package punto2;
+package srcRestaurante;
 
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ public class Menu {
 		this.consumiblesMenu.add(nuevoConsumible);
 	}
 
-	public ArrayList<Consumible> getConsumiblesMenu() {
+	public ArrayList<Consumible> consumiblesMenu() {
 		return consumiblesMenu;
 	}
 

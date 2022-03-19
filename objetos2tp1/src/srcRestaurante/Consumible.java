@@ -1,4 +1,4 @@
-package punto2;
+package srcRestaurante;
 
 public class Consumible {
 	private String nombre;
@@ -10,11 +10,11 @@ public class Consumible {
 		this.precio = precio;
 	}
 
-	public String getNombre() {
+	public String nombre() {
 		return nombre;
 	}
 
-	public float getPrecio() {
+	public float precio() {
 		return precio;
 	}
 

@@ -1,4 +1,4 @@
-package punto2;
+package srcRestaurante;
 
 public class TarjetaMastercard implements TarjetaCredito {
 	private float descuentoPlato;
@@ -9,8 +9,8 @@ public class TarjetaMastercard implements TarjetaCredito {
 
 	@Override
 	public Double calcularDescuento(Pedido pedido) {
-		Double montoFinal = pedido.getMontoTotal();
-		montoFinal = montoFinal - ((pedido.getMontoTotalPlatos() / 100) * this.descuentoPlato);
+		Double montoFinal = pedido.montoTotal();
+		montoFinal = montoFinal - ((pedido.montoTotalPlatos() / 100) * this.descuentoPlato);
 		return montoFinal;
 	}
 

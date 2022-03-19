@@ -1,4 +1,4 @@
-package punto1;
+package srcConcurso;
 
 public class Participante {
 
@@ -24,7 +24,7 @@ public class Participante {
 				+ this.puntos;
 	}
 
-	public int getPuntos() {
+	public int puntos() {
 		return puntos;
 	}
 }

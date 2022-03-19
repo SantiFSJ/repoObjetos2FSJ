@@ -1,4 +1,4 @@
-package punto2;
+package srcRestaurante;
 
 public class TarjetaVisa implements TarjetaCredito {
 	private float descuentoBebidas;
@@ -9,8 +9,8 @@ public class TarjetaVisa implements TarjetaCredito {
 
 	@Override
 	public Double calcularDescuento(Pedido pedido) {
-		Double montoFinal = pedido.getMontoTotal();
-		montoFinal = montoFinal - ((pedido.getMontoTotalBebidas() / 100) * this.descuentoBebidas);
+		Double montoFinal = pedido.montoTotal();
+		montoFinal = montoFinal - ((pedido.montoTotalBebidas() / 100) * this.descuentoBebidas);
 		return montoFinal;
 	}
 

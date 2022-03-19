@@ -1,4 +1,4 @@
-package punto2;
+package srcRestaurante;
 
 public class Bebida extends Consumible {
 

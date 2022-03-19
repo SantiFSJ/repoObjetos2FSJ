@@ -1,4 +1,4 @@
-package punto2;
+package srcRestaurante;
 
 public class TarjetaComarcaPlus implements TarjetaCredito {
 	private float descuentoTotal;
@@ -9,8 +9,8 @@ public class TarjetaComarcaPlus implements TarjetaCredito {
 
 	@Override
 	public Double calcularDescuento(Pedido pedido) {
-		Double montoFinal = pedido.getMontoTotal();
-		montoFinal = montoFinal - ((pedido.getMontoTotal() / 100) * this.descuentoTotal);
+		Double montoFinal = pedido.montoTotal();
+		montoFinal = montoFinal - ((pedido.montoTotal() / 100) * this.descuentoTotal);
 		return montoFinal;
 	}
 }

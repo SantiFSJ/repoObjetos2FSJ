@@ -1,4 +1,4 @@
-package punto2;
+package srcRestaurante;
 
 public class Estado {
 
@@ -10,7 +10,7 @@ public class Estado {
 		this.estado = PENDIENTE;
 	}
 
-	public String getEstado() {
+	public String estado() {
 		return estado;
 	}
 

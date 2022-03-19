@@ -1,4 +1,4 @@
-package punto2;
+package srcRestaurante;
 
 public class Pago {
 	protected TarjetaCredito tarjetaAsociada;
@@ -8,7 +8,7 @@ public class Pago {
 
 	public Pago(Pedido pedido, TarjetaCredito unaTarjeta, float propina) {
 		this.pedidoAsociado = pedido;
-		this.montoFinal = this.pedidoAsociado.getMontoTotal();
+		this.montoFinal = this.pedidoAsociado.montoTotal();
 		this.propina = propina;
 		this.tarjetaAsociada = unaTarjeta;
 		this.montoFinal = aplicarDescuento();
@@ -23,7 +23,7 @@ public class Pago {
 		return (this.montoFinal + (this.montoFinal / 100) * propina);// Contemplar Cambiarlo en un Futuro
 	}
 
-	public Double getMontoFinal() {
+	public Double montoFinal() {
 		return montoFinal;
 	}
 

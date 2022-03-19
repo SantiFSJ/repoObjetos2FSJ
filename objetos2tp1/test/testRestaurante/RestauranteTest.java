@@ -1,8 +1,18 @@
-package punto2;
+package testRestaurante;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
+
+import srcRestaurante.Bebida;
+import srcRestaurante.Menu;
+import srcRestaurante.Pago;
+import srcRestaurante.Pedido;
+import srcRestaurante.PlatoPrincipal;
+import srcRestaurante.TarjetaComarcaPlus;
+import srcRestaurante.TarjetaMastercard;
+import srcRestaurante.TarjetaViedma;
+import srcRestaurante.TarjetaVisa;
 
 public class RestauranteTest {
 	@Test
@@ -22,13 +32,12 @@ public class RestauranteTest {
 
 		Pedido pedido = new Pedido();
 
-		Item i1 = new Item(p1, 2, p1.getPrecio());
-		Item i2 = new Item(p2, 1, p2.getPrecio());
-		Item i3 = new Item(b1, 3, b1.getPrecio());
-
-		pedido.añadirItemPedido(i1);
-		pedido.añadirItemPedido(i2);
-		pedido.añadirItemPedido(i3);
+		pedido.añadirPlato(p1);
+		pedido.añadirPlato(p1);
+		pedido.añadirPlato(p2);
+		pedido.añadirBebida(b1);
+		pedido.añadirBebida(b1);
+		pedido.añadirBebida(b1);
 
 		pedido.confirmarPedido();
 
@@ -38,8 +47,7 @@ public class RestauranteTest {
 		Pago pago = pedido.pagar(tarjetaVisa, 2);
 
 		// Verificacion
-
-		assertEquals(1780.41, pago.getMontoFinal());
+		assertEquals(1780.41, pago.montoFinal());
 
 	}
 
@@ -60,13 +68,11 @@ public class RestauranteTest {
 
 		Pedido pedido = new Pedido();
 
-		Item i1 = new Item(p1, 1, p1.getPrecio());
-		Item i2 = new Item(p2, 3, p2.getPrecio());
-		Item i3 = new Item(b1, 1, b1.getPrecio());
-
-		pedido.añadirItemPedido(i1);
-		pedido.añadirItemPedido(i2);
-		pedido.añadirItemPedido(i3);
+		pedido.añadirPlato(p1);
+		pedido.añadirPlato(p2);
+		pedido.añadirPlato(p2);
+		pedido.añadirPlato(p2);
+		pedido.añadirBebida(b1);
 
 		pedido.confirmarPedido();
 
@@ -76,8 +82,7 @@ public class RestauranteTest {
 		Pago pago = pedido.pagar(tarjetaMastercard, 3);
 
 		// Verificacion
-
-		assertEquals(2373.12, pago.getMontoFinal());
+		assertEquals(2373.12, pago.montoFinal());
 
 	}
 
@@ -98,14 +103,13 @@ public class RestauranteTest {
 
 		Pedido pedido = new Pedido();
 
-		Item i1 = new Item(p1, 3, p1.getPrecio());
-		Item i2 = new Item(p2, 2, p2.getPrecio());
-		Item i3 = new Item(b1, 2, b1.getPrecio());
-
-		pedido.añadirItemPedido(i1);
-		pedido.añadirItemPedido(i2);
-		pedido.añadirItemPedido(i3);
-
+		pedido.añadirPlato(p1);
+		pedido.añadirPlato(p1);
+		pedido.añadirPlato(p1);
+		pedido.añadirPlato(p2);
+		pedido.añadirPlato(p2);
+		pedido.añadirBebida(b1);
+		pedido.añadirBebida(b1);
 		pedido.confirmarPedido();
 
 		TarjetaComarcaPlus tarjetaComarcaPlus = new TarjetaComarcaPlus();
@@ -114,7 +118,7 @@ public class RestauranteTest {
 		Pago pago = pedido.pagar(tarjetaComarcaPlus, 5);
 
 		// Verificacion
-		assertEquals(2881.2, pago.getMontoFinal());
+		assertEquals(2881.2, pago.montoFinal());
 
 	}
 
@@ -135,13 +139,9 @@ public class RestauranteTest {
 
 		Pedido pedido = new Pedido();
 
-		Item i1 = new Item(p1, 1, p1.getPrecio());
-		Item i2 = new Item(p2, 1, p2.getPrecio());
-		Item i3 = new Item(b1, 1, b1.getPrecio());
-
-		pedido.añadirItemPedido(i1);
-		pedido.añadirItemPedido(i2);
-		pedido.añadirItemPedido(i3);
+		pedido.añadirPlato(p1);
+		pedido.añadirPlato(p2);
+		pedido.añadirBebida(b1);
 
 		pedido.confirmarPedido();
 
@@ -151,7 +151,7 @@ public class RestauranteTest {
 		Pago pago = pedido.pagar(tarjetaViedma, 3);
 
 		// Verificacion
-		assertEquals(1184.5, pago.getMontoFinal());
+		assertEquals(1184.5, pago.montoFinal());
 
 	}
 }
