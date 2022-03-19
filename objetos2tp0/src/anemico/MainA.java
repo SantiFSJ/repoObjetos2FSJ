@@ -1,9 +1,9 @@
 package anemico;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class MainA {
 	// ANEMICO
@@ -11,14 +11,10 @@ public class MainA {
 	public static void main(String[] args) throws ParseException {
 
 		System.out.println("ANEMICO");
-		Date hoy = Calendar.getInstance().getTime();
-		Calendar c = Calendar.getInstance();
-		c.setTime(hoy);
 
-		TiempoA fechaActual = new TiempoA(c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.MONTH), c.get(Calendar.YEAR));
+		LocalDate hoy = LocalDate.now();
 
-		System.out.println("Formato Corto: " + fechaActual.getDia() + "/" + (fechaActual.getMes() + 1) + "/"
-				+ fechaActual.getAño());
+		TiempoA fechaActual = new TiempoA(hoy.getDayOfMonth(), hoy.getMonthValue(), hoy.getYear());
 
 		String mesText = null;
 		switch (fechaActual.getMes()) {
@@ -72,12 +68,14 @@ public class MainA {
 		}
 		}
 
-		SimpleDateFormat formatter = new SimpleDateFormat("d/MM/yyyy");
-		Date fecha = formatter.parse(fechaActual.getDia() + "/" + fechaActual.getMes() + "/" + fechaActual.getAño());
-		String diaTexto = new SimpleDateFormat("EEEE").format(fecha);
+		LocalDate fechaHoy = LocalDate.of(fechaActual.getAño(), fechaActual.getMes(), fechaActual.getDia());
+		System.out.println("Formato Corto: " + fechaHoy.getDayOfMonth() + "/" + fechaHoy.getMonthValue() + "/"
+				+ fechaHoy.getYear());
 
-		System.out.println("Formato Largo: " + diaTexto + " " + fechaActual.getDia() + " de " + mesText + " de "
-				+ fechaActual.getAño());
+		DateTimeFormatter formatoDia = DateTimeFormatter.ofPattern("EEEE", new Locale("es", "ES"));
+		DateTimeFormatter formatoMes = DateTimeFormatter.ofPattern("MMMM", new Locale("es", "ES"));
+		System.out.println("Formato Largo: " + fechaHoy.format(formatoDia) + " " + fechaHoy.getDayOfMonth() + " de "
+				+ fechaHoy.format(formatoMes) + " del " + fechaHoy.getYear());
 
 	}
 }

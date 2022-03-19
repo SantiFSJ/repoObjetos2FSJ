@@ -1,31 +1,28 @@
 package noAnemico;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class TiempoNA {
 	// NO ANEMICO
 	// Este Objeto NO es Anemico, ya que no solo contiene datos, sino que tambien
 	// guarda bastante logica derivada de los datos almacenados
-	private Date fechaHoy;
+	private LocalDate fechaHoy;
 
-	public TiempoNA(Date fechaHoy) {
+	public TiempoNA(LocalDate fechaHoy) {
 		this.fechaHoy = fechaHoy;
 	}
 
-	public void imprimirEnFormatoCorto() {
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-		String fecha = formatter.format(fechaHoy);
-		System.out.println("Formato Corto: " + fecha);
+	public String imprimirEnFormatoCorto() {
+		return (fechaHoy.getDayOfMonth() + "/" + fechaHoy.getMonthValue() + "/" + fechaHoy.getYear());
 	}
 
-	public void imprimirEnFormatoLargo() {
-		Calendar c = Calendar.getInstance();
-		c.setTime(fechaHoy);
-		String diaTexto = new SimpleDateFormat("EEEE").format(fechaHoy);
-		String mesTexto = new SimpleDateFormat("MMMM").format(fechaHoy);
-		System.out.println("Formato Largo: " + diaTexto + " " + c.get(Calendar.DAY_OF_MONTH) + " de " + mesTexto
-				+ " del " + c.get(Calendar.YEAR));
+	public String imprimirEnFormatoLargo() {
+		DateTimeFormatter formatoDia = DateTimeFormatter.ofPattern("EEEE", new Locale("es", "ES"));
+		DateTimeFormatter formatoMes = DateTimeFormatter.ofPattern("MMMM", new Locale("es", "ES"));
+		return (fechaHoy.format(formatoDia) + " " + fechaHoy.getDayOfMonth() + " de " + fechaHoy.format(formatoMes)
+				+ " del " + fechaHoy.getYear());
 	}
+
 }
