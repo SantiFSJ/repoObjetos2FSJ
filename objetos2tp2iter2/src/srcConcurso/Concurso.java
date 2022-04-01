@@ -12,6 +12,7 @@ public class Concurso {
 	private LocalDate fechaFinInscrip;
 	private ArrayList<Participante> listaParticipantes;
 	private int puntajeExtra;
+	private int id;
 
 	public Concurso(String nombre, LocalDate fechaInicioInscrip, LocalDate fechaFinInscrip) {
 		super();
@@ -50,7 +51,7 @@ public class Concurso {
 
 		} else {
 			throw new RuntimeException("Fuera de Plazo");
-			// System.out.println("ERROR AL INSCRIBIR PARTICIPANTE, FUERA DE PLAZO");
+
 		}
 	}
 

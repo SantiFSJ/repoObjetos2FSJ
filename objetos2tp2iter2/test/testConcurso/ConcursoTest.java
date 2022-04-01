@@ -65,9 +65,12 @@ public class ConcursoTest {
 		Concurso c3 = new Concurso("Tercer Concurso", fechaIni, fechaFin);
 
 		// Ejercitación
-
-		File file = new File("C:\\Users\\santi\\OneDrive\\Escritorio\\ListaParticipantes.txt");
-		c3.inscribirParticipante(p3, file);
+		try {
+			File file = new File("C:\\Users\\santi\\OneDrive\\Escritorio\\ListaParticipantes.txt");
+			c3.inscribirParticipante(p3, file);
+		} catch (RuntimeException e) {
+			System.out.println(e.getMessage());
+		}
 
 		// Verificacion
 		assertEquals(false, c3.estaInscripto(p3));
