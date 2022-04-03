@@ -1,4 +1,4 @@
-package helperConcurso;
+package persistenciaConcurso;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

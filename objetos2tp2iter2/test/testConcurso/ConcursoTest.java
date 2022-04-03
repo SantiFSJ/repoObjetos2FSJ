@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
+import persistenciaConcurso.EnBaseDeDatosRegistroDeInscripcion;
 import srcConcurso.Concurso;
 import srcConcurso.Participante;
 
@@ -20,7 +21,11 @@ public class ConcursoTest {
 
 		LocalDate fechaFin = LocalDate.now().plusDays(5);
 
-		Concurso c = new Concurso("Primer Concurso", fechaIni, fechaFin);
+		// EnDiscoRegistroDeInscripcion registro = new EnDiscoRegistroDeInscripcion();
+
+		EnBaseDeDatosRegistroDeInscripcion registro = new EnBaseDeDatosRegistroDeInscripcion();
+
+		Concurso c = new Concurso("Primer Concurso", fechaIni, fechaFin, registro);
 
 		// Ejercitación
 
@@ -41,14 +46,18 @@ public class ConcursoTest {
 
 		LocalDate fechaFin = LocalDate.now().plusDays(10);
 
-		Concurso c2 = new Concurso("Segundo Concurso", fechaIni, fechaFin);
+		// EnDiscoRegistroDeInscripcion registro = new EnDiscoRegistroDeInscripcion();
+
+		EnBaseDeDatosRegistroDeInscripcion registro = new EnBaseDeDatosRegistroDeInscripcion();
+
+		Concurso c2 = new Concurso("Segundo Concurso", fechaIni, fechaFin, registro);
 
 		// Ejercitación
 		File file = new File("C:\\Users\\santi\\OneDrive\\Escritorio\\ListaParticipantes.txt");
 		c2.inscribirParticipante(p2, file);
 
 		// Verificacion
-		assertEquals(true, c2.estaInscripto(p2));// Quizas añadir comparacion con el puntaje extra esperado?
+		assertEquals(true, c2.estaInscripto(p2));
 		assertEquals(10, p2.puntos());
 
 	}
@@ -62,7 +71,11 @@ public class ConcursoTest {
 
 		LocalDate fechaFin = LocalDate.now().minusDays(10);
 
-		Concurso c3 = new Concurso("Tercer Concurso", fechaIni, fechaFin);
+		// EnDiscoRegistroDeInscripcion registro = new EnDiscoRegistroDeInscripcion();
+
+		EnBaseDeDatosRegistroDeInscripcion registro = new EnBaseDeDatosRegistroDeInscripcion();
+
+		Concurso c3 = new Concurso("Tercer Concurso", fechaIni, fechaFin, registro);
 
 		// Ejercitación
 		try {
@@ -75,4 +88,5 @@ public class ConcursoTest {
 		// Verificacion
 		assertEquals(false, c3.estaInscripto(p3));
 	}
+
 }

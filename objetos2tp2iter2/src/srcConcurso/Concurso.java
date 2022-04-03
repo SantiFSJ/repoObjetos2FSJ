@@ -1,8 +1,6 @@
 package srcConcurso;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -13,13 +11,16 @@ public class Concurso {
 	private ArrayList<Participante> listaParticipantes;
 	private int puntajeExtra;
 	private int id;
+	private RegistroDeInscripcion registro;
 
-	public Concurso(String nombre, LocalDate fechaInicioInscrip, LocalDate fechaFinInscrip) {
+	public Concurso(String nombre, LocalDate fechaInicioInscrip, LocalDate fechaFinInscrip,
+			RegistroDeInscripcion registro) {
 		super();
 		this.nombre = nombre;
 		this.fechaInicioInscrip = fechaInicioInscrip;
 		this.fechaFinInscrip = fechaFinInscrip;
 		this.puntajeExtra = 10;
+		this.registro = registro;
 		listaParticipantes = new ArrayList<Participante>();
 	}
 
@@ -30,23 +31,13 @@ public class Concurso {
 
 			listaParticipantes.add(unParticipante);
 
-			for (int i = 0; i < listaParticipantes.size(); i++) {
+			String nombreYFecha = fechaActual.getDayOfMonth() + "/" + fechaActual.getMonthValue() + "/"
+					+ fechaActual.getYear() + ", " + unParticipante.dni() + ", " + this.nombre + "\n";
 
-				try {
-					FileWriter myWriter = new FileWriter(
-							"C:\\Users\\santi\\OneDrive\\Escritorio\\ListaParticipantes.txt", true);
-					myWriter.write(fechaActual.getDayOfMonth() + "/" + fechaActual.getMonthValue() + "/"
-							+ fechaActual.getYear() + ", " + listaParticipantes.get(i).dni() + ", " + this.nombre
-							+ "\n");
-					myWriter.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+			registro.archivar(nombreYFecha);
 
-				if (fechaActual.equals(fechaInicioInscrip)) {
-					unParticipante.sumarPuntos(this.puntajeExtra);
-				}
-
+			if (fechaActual.equals(fechaInicioInscrip)) {
+				unParticipante.sumarPuntos(this.puntajeExtra);
 			}
 
 		} else {
