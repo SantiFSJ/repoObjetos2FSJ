@@ -1,8 +1,6 @@
 package srcRestaurante;
 
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalDate;
 
 public class Pago {
@@ -20,19 +18,14 @@ public class Pago {
 		this.montoFinal = sumarPropina();
 	}
 
-	public void archivar(File file) {
+	public void archivar(File file, RegistroDePago registro) {
 
 		LocalDate fechaActual = LocalDate.now();
 
-		try {
-			FileWriter myWriter = new FileWriter(file, true);
-			myWriter.write(fechaActual.getDayOfMonth() + "/" + fechaActual.getMonthValue() + "/" + fechaActual.getYear()
-					+ " || " + this.montoFinal + "\n");
-			myWriter.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		String fechaYPago = fechaActual.getDayOfMonth() + "/" + fechaActual.getMonthValue() + "/"
+				+ fechaActual.getYear() + " || " + this.montoFinal + "\n";
 
+		registro.archivar(fechaYPago);
 	}
 
 	public Double aplicarDescuento() {
