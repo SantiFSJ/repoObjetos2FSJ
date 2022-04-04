@@ -33,7 +33,7 @@ public class Pago {
 	}
 
 	public Double sumarPropina() {
-		return (this.montoFinal + (this.montoFinal / 100) * propina);// Contemplar Cambiarlo en un Futuro
+		return (this.montoFinal + (this.montoFinal / 100) * propina);
 	}
 
 	public Double montoFinal() {

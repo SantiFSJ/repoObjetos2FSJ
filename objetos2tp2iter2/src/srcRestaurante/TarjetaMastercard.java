@@ -3,8 +3,8 @@ package srcRestaurante;
 public class TarjetaMastercard implements TarjetaCredito {
 	private float descuentoPlato;
 
-	public TarjetaMastercard() {
-		descuentoPlato = 2;
+	public TarjetaMastercard(int descuento) {
+		descuentoPlato = descuento;
 	}
 
 	@Override

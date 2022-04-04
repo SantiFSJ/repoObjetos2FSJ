@@ -44,7 +44,7 @@ public class RestauranteTest {
 
 		pedido.confirmarPedido();
 
-		TarjetaVisa tarjetaVisa = new TarjetaVisa();
+		TarjetaVisa tarjetaVisa = new TarjetaVisa(3);
 
 		// Ejercitación
 		Pago pago = pedido.pagar(tarjetaVisa, 2);
@@ -88,7 +88,7 @@ public class RestauranteTest {
 
 		pedido.confirmarPedido();
 
-		TarjetaMastercard tarjetaMastercard = new TarjetaMastercard();
+		TarjetaMastercard tarjetaMastercard = new TarjetaMastercard(2);
 
 		// Ejercitación
 		Pago pago = pedido.pagar(tarjetaMastercard, 3);
@@ -133,7 +133,7 @@ public class RestauranteTest {
 		pedido.añadirBebida(b1);
 		pedido.confirmarPedido();
 
-		TarjetaComarcaPlus tarjetaComarcaPlus = new TarjetaComarcaPlus();
+		TarjetaComarcaPlus tarjetaComarcaPlus = new TarjetaComarcaPlus(2);
 
 		// Ejercitación
 		Pago pago = pedido.pagar(tarjetaComarcaPlus, 5);

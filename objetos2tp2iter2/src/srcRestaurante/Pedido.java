@@ -20,7 +20,7 @@ public class Pedido {
 		if (this.estado.pendiente()) {
 			this.listaBebidas.add(bebida);
 		} else {
-			System.out.println("No se puedo añadir la Bebida");
+			throw new RuntimeException("No se pudo añadir la Bebida");
 		}
 
 	}
@@ -29,7 +29,7 @@ public class Pedido {
 		if (this.estado.pendiente()) {
 			this.listaPlatos.add(plato);
 		} else {
-			System.out.println("No se puedo añadir el Plato");
+			throw new RuntimeException("No se puedo añadir el Plato");
 		}
 
 	}
