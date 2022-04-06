@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
-import persistenciaConcurso.EnBaseDeDatosRegistroDeInscripcion;
+import persistenciaConcurso.StubObjectRegistroDeInscripcion;
 import srcConcurso.Concurso;
 import srcConcurso.Participante;
 
@@ -23,7 +23,10 @@ public class ConcursoTest {
 
 		// EnDiscoRegistroDeInscripcion registro = new EnDiscoRegistroDeInscripcion();
 
-		EnBaseDeDatosRegistroDeInscripcion registro = new EnBaseDeDatosRegistroDeInscripcion();
+		// EnBaseDeDatosRegistroDeInscripcion registro = new
+		// EnBaseDeDatosRegistroDeInscripcion();
+
+		StubObjectRegistroDeInscripcion registro = new StubObjectRegistroDeInscripcion();
 
 		Concurso c = new Concurso("Primer Concurso", fechaIni, fechaFin, registro);
 
@@ -34,6 +37,11 @@ public class ConcursoTest {
 
 		// Verificacion
 		assertEquals(true, c.estaInscripto(p1));
+
+		LocalDate fecha = LocalDate.now();
+		String rtadoEsperado = fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/" + fecha.getYear()
+				+ ", 40.000.000, Primer Concurso\n";
+		assertEquals(rtadoEsperado, registro.registro());
 
 	}
 
@@ -48,7 +56,10 @@ public class ConcursoTest {
 
 		// EnDiscoRegistroDeInscripcion registro = new EnDiscoRegistroDeInscripcion();
 
-		EnBaseDeDatosRegistroDeInscripcion registro = new EnBaseDeDatosRegistroDeInscripcion();
+		// EnBaseDeDatosRegistroDeInscripcion registro = new
+		// EnBaseDeDatosRegistroDeInscripcion();
+
+		StubObjectRegistroDeInscripcion registro = new StubObjectRegistroDeInscripcion();
 
 		Concurso c2 = new Concurso("Segundo Concurso", fechaIni, fechaFin, registro);
 
@@ -60,6 +71,11 @@ public class ConcursoTest {
 		assertEquals(true, c2.estaInscripto(p2));
 		assertEquals(10, p2.puntos());
 
+		LocalDate fecha = LocalDate.now();
+		String rtadoEsperado = fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/" + fecha.getYear()
+				+ ", 35.000.000, Segundo Concurso\n";
+
+		assertEquals(rtadoEsperado, registro.registro());
 	}
 
 	@Test
@@ -73,7 +89,7 @@ public class ConcursoTest {
 
 		// EnDiscoRegistroDeInscripcion registro = new EnDiscoRegistroDeInscripcion();
 
-		EnBaseDeDatosRegistroDeInscripcion registro = new EnBaseDeDatosRegistroDeInscripcion();
+		StubObjectRegistroDeInscripcion registro = new StubObjectRegistroDeInscripcion();
 
 		Concurso c3 = new Concurso("Tercer Concurso", fechaIni, fechaFin, registro);
 
@@ -86,7 +102,10 @@ public class ConcursoTest {
 		}
 
 		// Verificacion
+
 		assertEquals(false, c3.estaInscripto(p3));
+
+		assertEquals(null, registro.registro());
 	}
 
 }
