@@ -1,6 +1,5 @@
 package srcRestaurante;
 
-import java.io.File;
 import java.time.LocalDate;
 
 public class Pago {
@@ -18,7 +17,7 @@ public class Pago {
 		this.montoFinal = sumarPropina();
 	}
 
-	public void archivar(File file, RegistroDePago registro) {
+	public void archivar(RegistroDePago registro) {
 
 		LocalDate fechaActual = LocalDate.now();
 

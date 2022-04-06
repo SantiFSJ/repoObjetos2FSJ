@@ -2,11 +2,11 @@ package testRestaurante;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.io.File;
+import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
-import persistenciaRestaurante.EnBaseDeDatosRegistroPagoRestaurante;
+import persistenciaRestaurante.StubObjectRegistroPagoRestaurante;
 import srcRestaurante.Bebida;
 import srcRestaurante.Menu;
 import srcRestaurante.Pago;
@@ -49,17 +49,19 @@ public class RestauranteTest {
 		// Ejercitación
 		Pago pago = pedido.pagar(tarjetaVisa, 2);
 
-		File file = new File("C:\\Users\\santi\\OneDrive\\Escritorio\\CostoTotal.txt");
+		StubObjectRegistroPagoRestaurante registro = new StubObjectRegistroPagoRestaurante();
 
-		// EnDiscoRegistroPagoRestaurante registro = new
-		// EnDiscoRegistroPagoRestaurante();
-
-		EnBaseDeDatosRegistroPagoRestaurante registro = new EnBaseDeDatosRegistroPagoRestaurante();
-
-		pago.archivar(file, registro);
+		pago.archivar(registro);
 
 		// Verificacion
 		assertEquals(1780.41, pago.montoFinal());
+
+		LocalDate fechaActual = LocalDate.now();
+
+		String rtadoEsperado = fechaActual.getDayOfMonth() + "/" + fechaActual.getMonthValue() + "/"
+				+ fechaActual.getYear() + " || " + pago.montoFinal() + "\n";
+
+		assertEquals(rtadoEsperado, registro.registroGuardado());
 
 	}
 
@@ -93,17 +95,19 @@ public class RestauranteTest {
 		// Ejercitación
 		Pago pago = pedido.pagar(tarjetaMastercard, 3);
 
-		File file = new File("C:\\Users\\santi\\OneDrive\\Escritorio\\CostoTotal.txt");
+		StubObjectRegistroPagoRestaurante registro = new StubObjectRegistroPagoRestaurante();
 
-		// EnDiscoRegistroPagoRestaurante registro = new
-		// EnDiscoRegistroPagoRestaurante();
-
-		EnBaseDeDatosRegistroPagoRestaurante registro = new EnBaseDeDatosRegistroPagoRestaurante();
-
-		pago.archivar(file, registro);
+		pago.archivar(registro);
 
 		// Verificacion
 		assertEquals(2373.12, pago.montoFinal());
+
+		LocalDate fechaActual = LocalDate.now();
+
+		String rtadoEsperado = fechaActual.getDayOfMonth() + "/" + fechaActual.getMonthValue() + "/"
+				+ fechaActual.getYear() + " || " + pago.montoFinal() + "\n";
+
+		assertEquals(rtadoEsperado, registro.registroGuardado());
 
 	}
 
@@ -138,17 +142,19 @@ public class RestauranteTest {
 		// Ejercitación
 		Pago pago = pedido.pagar(tarjetaComarcaPlus, 5);
 
-		File file = new File("C:\\Users\\santi\\OneDrive\\Escritorio\\CostoTotal.txt");
+		StubObjectRegistroPagoRestaurante registro = new StubObjectRegistroPagoRestaurante();
 
-		// EnDiscoRegistroPagoRestaurante registro = new
-		// EnDiscoRegistroPagoRestaurante();
-
-		EnBaseDeDatosRegistroPagoRestaurante registro = new EnBaseDeDatosRegistroPagoRestaurante();
-
-		pago.archivar(file, registro);
+		pago.archivar(registro);
 
 		// Verificacion
 		assertEquals(2881.2, pago.montoFinal());
+
+		LocalDate fechaActual = LocalDate.now();
+
+		String rtadoEsperado = fechaActual.getDayOfMonth() + "/" + fechaActual.getMonthValue() + "/"
+				+ fechaActual.getYear() + " || " + pago.montoFinal() + "\n";
+
+		assertEquals(rtadoEsperado, registro.registroGuardado());
 
 	}
 
@@ -180,17 +186,19 @@ public class RestauranteTest {
 		// Ejercitación
 		Pago pago = pedido.pagar(tarjetaViedma, 3);
 
-		File file = new File("C:\\Users\\santi\\OneDrive\\Escritorio\\CostoTotal.txt");
+		StubObjectRegistroPagoRestaurante registro = new StubObjectRegistroPagoRestaurante();
 
-		// EnDiscoRegistroPagoRestaurante registro = new
-		// EnDiscoRegistroPagoRestaurante();
-
-		EnBaseDeDatosRegistroPagoRestaurante registro = new EnBaseDeDatosRegistroPagoRestaurante();
-
-		pago.archivar(file, registro);
+		pago.archivar(registro);
 
 		// Verificacion
 		assertEquals(1184.5, pago.montoFinal());
+
+		LocalDate fechaActual = LocalDate.now();
+
+		String rtadoEsperado = fechaActual.getDayOfMonth() + "/" + fechaActual.getMonthValue() + "/"
+				+ fechaActual.getYear() + " || " + pago.montoFinal() + "\n";
+
+		assertEquals(rtadoEsperado, registro.registroGuardado());
 
 	}
 }

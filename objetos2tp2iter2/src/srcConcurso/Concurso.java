@@ -1,6 +1,5 @@
 package srcConcurso;
 
-import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -24,7 +23,7 @@ public class Concurso {
 		listaParticipantes = new ArrayList<Participante>();
 	}
 
-	public void inscribirParticipante(Participante unParticipante, File file) {
+	public void inscribirParticipante(Participante unParticipante) {
 		LocalDate fechaActual = LocalDate.now();
 		if ((fechaActual.isBefore(fechaFinInscrip) && fechaActual.isAfter(fechaInicioInscrip))
 				|| fechaActual.equals(fechaFinInscrip) || fechaActual.equals(fechaInicioInscrip)) {

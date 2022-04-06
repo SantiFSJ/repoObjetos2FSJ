@@ -2,7 +2,6 @@ package testConcurso;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.io.File;
 import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
@@ -21,19 +20,12 @@ public class ConcursoTest {
 
 		LocalDate fechaFin = LocalDate.now().plusDays(5);
 
-		// EnDiscoRegistroDeInscripcion registro = new EnDiscoRegistroDeInscripcion();
-
-		// EnBaseDeDatosRegistroDeInscripcion registro = new
-		// EnBaseDeDatosRegistroDeInscripcion();
-
 		StubObjectRegistroDeInscripcion registro = new StubObjectRegistroDeInscripcion();
 
 		Concurso c = new Concurso("Primer Concurso", fechaIni, fechaFin, registro);
 
 		// Ejercitación
-
-		File file = new File("C:\\Users\\santi\\OneDrive\\Escritorio\\ListaParticipantes.txt");
-		c.inscribirParticipante(p1, file);
+		c.inscribirParticipante(p1);
 
 		// Verificacion
 		assertEquals(true, c.estaInscripto(p1));
@@ -41,7 +33,8 @@ public class ConcursoTest {
 		LocalDate fecha = LocalDate.now();
 		String rtadoEsperado = fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/" + fecha.getYear()
 				+ ", 40.000.000, Primer Concurso\n";
-		assertEquals(rtadoEsperado, registro.registro());
+
+		assertEquals(rtadoEsperado, registro.registroGuardado());
 
 	}
 
@@ -54,18 +47,12 @@ public class ConcursoTest {
 
 		LocalDate fechaFin = LocalDate.now().plusDays(10);
 
-		// EnDiscoRegistroDeInscripcion registro = new EnDiscoRegistroDeInscripcion();
-
-		// EnBaseDeDatosRegistroDeInscripcion registro = new
-		// EnBaseDeDatosRegistroDeInscripcion();
-
 		StubObjectRegistroDeInscripcion registro = new StubObjectRegistroDeInscripcion();
 
 		Concurso c2 = new Concurso("Segundo Concurso", fechaIni, fechaFin, registro);
 
 		// Ejercitación
-		File file = new File("C:\\Users\\santi\\OneDrive\\Escritorio\\ListaParticipantes.txt");
-		c2.inscribirParticipante(p2, file);
+		c2.inscribirParticipante(p2);
 
 		// Verificacion
 		assertEquals(true, c2.estaInscripto(p2));
@@ -75,7 +62,7 @@ public class ConcursoTest {
 		String rtadoEsperado = fecha.getDayOfMonth() + "/" + fecha.getMonthValue() + "/" + fecha.getYear()
 				+ ", 35.000.000, Segundo Concurso\n";
 
-		assertEquals(rtadoEsperado, registro.registro());
+		assertEquals(rtadoEsperado, registro.registroGuardado());
 	}
 
 	@Test
@@ -87,16 +74,13 @@ public class ConcursoTest {
 
 		LocalDate fechaFin = LocalDate.now().minusDays(10);
 
-		// EnDiscoRegistroDeInscripcion registro = new EnDiscoRegistroDeInscripcion();
-
 		StubObjectRegistroDeInscripcion registro = new StubObjectRegistroDeInscripcion();
 
 		Concurso c3 = new Concurso("Tercer Concurso", fechaIni, fechaFin, registro);
 
 		// Ejercitación
 		try {
-			File file = new File("C:\\Users\\santi\\OneDrive\\Escritorio\\ListaParticipantes.txt");
-			c3.inscribirParticipante(p3, file);
+			c3.inscribirParticipante(p3);
 		} catch (RuntimeException e) {
 			System.out.println(e.getMessage());
 		}
@@ -105,7 +89,7 @@ public class ConcursoTest {
 
 		assertEquals(false, c3.estaInscripto(p3));
 
-		assertEquals(null, registro.registro());
+		assertEquals(null, registro.registroGuardado());
 	}
 
 }
