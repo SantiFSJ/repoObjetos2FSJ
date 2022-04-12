@@ -7,13 +7,15 @@ public class Pedido {
 	private ArrayList<PlatoPrincipal> listaPlatos;
 	private Estado estado;
 	private Boolean pagado;
+	private RegistroDePago registro;
 
-	public Pedido() {
+	public Pedido(RegistroDePago registro) {
 		super();
 		this.listaBebidas = new ArrayList<Bebida>();
 		this.listaPlatos = new ArrayList<PlatoPrincipal>();
 		this.estado = new Estado();
 		this.pagado = false;
+		this.registro = registro;
 	}
 
 	public void añadirBebida(Bebida bebida) {
@@ -71,6 +73,7 @@ public class Pedido {
 		if (this.estado.confirmado() && this.pagado == false) {
 			pago = new Pago(this, unaTarjeta, propina);
 		}
+		pago.archivar(registro);
 		return pago;
 	}
 }

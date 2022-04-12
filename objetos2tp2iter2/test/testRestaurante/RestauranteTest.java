@@ -33,7 +33,8 @@ public class RestauranteTest {
 
 		menu.añadirConsumible(b1);
 
-		Pedido pedido = new Pedido();
+		StubObjectRegistroPagoRestaurante registro = new StubObjectRegistroPagoRestaurante();
+		Pedido pedido = new Pedido(registro);
 
 		pedido.añadirPlato(p1);
 		pedido.añadirPlato(p1);
@@ -48,10 +49,6 @@ public class RestauranteTest {
 
 		// Ejercitación
 		Pago pago = pedido.pagar(tarjetaVisa, 2);
-
-		StubObjectRegistroPagoRestaurante registro = new StubObjectRegistroPagoRestaurante();
-
-		pago.archivar(registro);
 
 		// Verificacion
 		assertEquals(1780.41, pago.montoFinal());
@@ -80,7 +77,8 @@ public class RestauranteTest {
 
 		menu.añadirConsumible(b1);
 
-		Pedido pedido = new Pedido();
+		StubObjectRegistroPagoRestaurante registro = new StubObjectRegistroPagoRestaurante();
+		Pedido pedido = new Pedido(registro);
 
 		pedido.añadirPlato(p1);
 		pedido.añadirPlato(p2);
@@ -94,10 +92,6 @@ public class RestauranteTest {
 
 		// Ejercitación
 		Pago pago = pedido.pagar(tarjetaMastercard, 3);
-
-		StubObjectRegistroPagoRestaurante registro = new StubObjectRegistroPagoRestaurante();
-
-		pago.archivar(registro);
 
 		// Verificacion
 		assertEquals(2373.12, pago.montoFinal());
@@ -126,7 +120,8 @@ public class RestauranteTest {
 
 		menu.añadirConsumible(b1);
 
-		Pedido pedido = new Pedido();
+		StubObjectRegistroPagoRestaurante registro = new StubObjectRegistroPagoRestaurante();
+		Pedido pedido = new Pedido(registro);
 
 		pedido.añadirPlato(p1);
 		pedido.añadirPlato(p1);
@@ -141,10 +136,6 @@ public class RestauranteTest {
 
 		// Ejercitación
 		Pago pago = pedido.pagar(tarjetaComarcaPlus, 5);
-
-		StubObjectRegistroPagoRestaurante registro = new StubObjectRegistroPagoRestaurante();
-
-		pago.archivar(registro);
 
 		// Verificacion
 		assertEquals(2881.2, pago.montoFinal());
@@ -173,7 +164,8 @@ public class RestauranteTest {
 
 		menu.añadirConsumible(b1);
 
-		Pedido pedido = new Pedido();
+		StubObjectRegistroPagoRestaurante registro = new StubObjectRegistroPagoRestaurante();
+		Pedido pedido = new Pedido(registro);
 
 		pedido.añadirPlato(p1);
 		pedido.añadirPlato(p2);
@@ -185,10 +177,6 @@ public class RestauranteTest {
 
 		// Ejercitación
 		Pago pago = pedido.pagar(tarjetaViedma, 3);
-
-		StubObjectRegistroPagoRestaurante registro = new StubObjectRegistroPagoRestaurante();
-
-		pago.archivar(registro);
 
 		// Verificacion
 		assertEquals(1184.5, pago.montoFinal());

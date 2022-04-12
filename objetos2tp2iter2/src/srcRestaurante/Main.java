@@ -11,7 +11,9 @@ public class Main {
 
 		Bebida b1 = new Bebida("Agua", 50);
 
-		Pedido pedido = new Pedido();
+		EnBaseDeDatosRegistroPagoRestaurante registroEnBase = new EnBaseDeDatosRegistroPagoRestaurante();
+
+		Pedido pedido = new Pedido(registroEnBase);
 
 		pedido.añadirPlato(p1);
 		pedido.añadirPlato(p1);
@@ -26,13 +28,20 @@ public class Main {
 
 		Pago pago = pedido.pagar(tarjetaVisa, 2);
 
-		EnBaseDeDatosRegistroPagoRestaurante registroEnBase = new EnBaseDeDatosRegistroPagoRestaurante();
-
 		EnDiscoRegistroPagoRestaurante registroEnDisco = new EnDiscoRegistroPagoRestaurante();
 
-		pago.archivar(registroEnBase);
+		Pedido pedido2 = new Pedido(registroEnBase);
 
-		pago.archivar(registroEnDisco);
+		pedido2.añadirPlato(p1);
+		pedido2.añadirPlato(p1);
+		pedido2.añadirPlato(p2);
+		pedido2.añadirBebida(b1);
+		pedido2.añadirBebida(b1);
+		pedido2.añadirBebida(b1);
+
+		pedido2.confirmarPedido();
+
+		Pago pago2 = pedido.pagar(tarjetaVisa, 2);
 
 	}
 
